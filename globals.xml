@@ -1,0 +1,20 @@
+<globals>
+  <subjects>
+    <int name="page" value="0"/>
+    <int name="portion_g" value="10"/>
+    <int name="food_level" value="72"/>
+    <int name="feed_count" value="2"/>
+    <string name="feed_status" value="System ready"/>
+    <int name="schedule_1" value="1"/>
+    <int name="schedule_2" value="1"/>
+    <int name="schedule_3" value="1"/>
+    <int name="buzzer_enabled" value="1"/>
+  </subjects>
+
+  <styles>
+    <style name="style_panel" bg_color="0x102226" bg_opa="100%" radius="18" border_width="0"/>
+    <style name="style_panel_small" bg_color="0x163036" bg_opa="100%" radius="12" border_width="0"/>
+    <style name="style_button" bg_color="0x163036" bg_opa="100%" radius="14" border_width="0"/>
+    <style name="style_button_primary" bg_color="0x39d6b4" bg_opa="100%" radius="14" border_width="0"/>
+  </styles>
+</globals>
