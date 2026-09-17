@@ -1,20 +1,133 @@
 <globals>
+  <consts>
+    <color name="color_primary" value="0x0064e0"/>
+    <color name="color_primary_deep" value="0x0457cb"/>
+    <color name="color_canvas" value="0xffffff"/>
+    <color name="color_surface_soft" value="0xf1f4f7"/>
+    <color name="color_ink_deep" value="0x0a1317"/>
+    <color name="color_ink" value="0x1c1e21"/>
+    <color name="color_charcoal" value="0x444950"/>
+    <color name="color_steel" value="0x5d6c7b"/>
+    <color name="color_stone" value="0x8595a4"/>
+    <color name="color_hairline" value="0xced0d4"/>
+    <color name="color_hairline_soft" value="0xdee3e9"/>
+    <color name="color_success" value="0x31a24c"/>
+    <color name="color_warning" value="0xf7b928"/>
+    <color name="color_critical" value="0xe41e3f"/>
+  </consts>
+
   <subjects>
-    <int name="page" value="0"/>
-    <int name="portion_g" value="10"/>
-    <int name="food_level" value="72"/>
-    <int name="feed_count" value="2"/>
+    <int name="page" value="0" min_value="0" max_value="3"/>
+    <int name="portion_g" value="10" min_value="1" max_value="50"/>
+    <int name="food_level" value="72" min_value="0" max_value="100"/>
+    <int name="feed_count" value="2" min_value="0" max_value="999"/>
     <string name="feed_status" value="System ready"/>
-    <int name="schedule_1" value="1"/>
-    <int name="schedule_2" value="1"/>
-    <int name="schedule_3" value="1"/>
-    <int name="buzzer_enabled" value="1"/>
+    <int name="schedule_1" value="1" min_value="0" max_value="1"/>
+    <int name="schedule_2" value="1" min_value="0" max_value="1"/>
+    <int name="schedule_3" value="1" min_value="0" max_value="1"/>
+    <int name="buzzer_enabled" value="1" min_value="0" max_value="1"/>
   </subjects>
 
   <styles>
-    <style name="style_panel" bg_color="0x102226" bg_opa="100%" radius="18" border_width="0"/>
-    <style name="style_panel_small" bg_color="0x163036" bg_opa="100%" radius="12" border_width="0"/>
-    <style name="style_button" bg_color="0x163036" bg_opa="100%" radius="14" border_width="0"/>
-    <style name="style_button_primary" bg_color="0x39d6b4" bg_opa="100%" radius="14" border_width="0"/>
+    <style name="style_screen"
+           bg_color="#color_canvas"
+           bg_opa="100%"
+           text_color="#color_ink_deep"/>
+
+    <style name="style_card"
+           bg_color="#color_canvas"
+           bg_opa="100%"
+           radius="24"
+           border_width="1"
+           border_color="#color_hairline_soft"
+           border_opa="100%"/>
+
+    <style name="style_feature"
+           bg_color="#color_surface_soft"
+           bg_opa="100%"
+           radius="32"
+           border_width="0"/>
+
+    <style name="style_soft"
+           bg_color="#color_surface_soft"
+           bg_opa="100%"
+           radius="16"
+           border_width="0"/>
+
+    <style name="style_dark_strip"
+           bg_color="#color_ink_deep"
+           bg_opa="100%"
+           radius="32"
+           border_width="0"
+           text_color="#color_canvas"/>
+
+    <style name="style_button_ink"
+           bg_color="#color_ink_deep"
+           bg_opa="100%"
+           text_color="#color_canvas"
+           radius="100"
+           border_width="0"/>
+
+    <style name="style_button_ink_pressed"
+           bg_color="#color_charcoal"
+           bg_opa="100%"
+           text_color="#color_canvas"/>
+
+    <style name="style_button_cobalt"
+           bg_color="#color_primary"
+           bg_opa="100%"
+           text_color="#color_canvas"
+           radius="100"
+           border_width="0"/>
+
+    <style name="style_button_cobalt_pressed"
+           bg_color="#color_primary_deep"
+           bg_opa="100%"
+           text_color="#color_canvas"/>
+
+    <style name="style_button_ghost"
+           bg_color="#color_canvas"
+           bg_opa="100%"
+           text_color="#color_ink_deep"
+           radius="100"
+           border_width="1"
+           border_color="#color_hairline"
+           border_opa="100%"/>
+
+    <style name="style_tab"
+           bg_color="#color_canvas"
+           bg_opa="100%"
+           text_color="#color_ink"
+           radius="100"
+           border_width="1"
+           border_color="#color_hairline_soft"
+           border_opa="100%"/>
+
+    <style name="style_tab_active"
+           bg_color="#color_ink_deep"
+           bg_opa="100%"
+           text_color="#color_canvas"
+           border_width="0"/>
+
+    <style name="style_badge_success"
+           bg_color="#color_success"
+           bg_opa="100%"
+           text_color="#color_canvas"
+           radius="100"
+           border_width="0"/>
+
+    <style name="style_badge_soft"
+           bg_color="#color_surface_soft"
+           bg_opa="100%"
+           text_color="#color_steel"
+           radius="100"
+           border_width="0"/>
+
+    <style name="style_badge_blue"
+           bg_color="#color_primary"
+           bg_opa="100%"
+           text_color="#color_canvas"
+           radius="100"
+           border_width="0"/>
   </styles>
 </globals>
