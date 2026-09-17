@@ -1,211 +1,334 @@
 <screen permanent="true">
-  <view width="100%" height="100%" style_bg_color="0x071417" style_bg_opa="100%" style_border_width="0" style_pad_all="0" scrollable="false">
+  <view width="100%" height="100%" style_bg_color="#color_canvas" style_bg_opa="100%" style_border_width="0" style_pad_all="0" scrollable="false">
+    <style name="style_screen"/>
 
-    <lv_obj x="0" y="0" width="800" height="58" style_bg_color="0x071417" style_bg_opa="100%" style_border_width="0" style_radius="0" style_pad_all="0" scrollable="false">
-      <lv_obj x="22" y="12" width="34" height="34" style_bg_color="0x39d6b4" style_bg_opa="100%" style_border_width="0" style_radius="10" style_pad_all="0" scrollable="false">
-        <lv_label text="&gt;&lt;&gt;" align="center" style_text_color="0x071417"/>
+    <lv_obj x="0" y="0" width="800" height="64"
+            style_bg_color="#color_canvas" style_bg_opa="100%"
+            style_border_width="1" style_border_side="bottom"
+            style_border_color="#color_hairline_soft"
+            style_radius="0" style_pad_all="0" scrollable="false">
+      <lv_label text="AquaFeed" x="24" y="23" style_text_color="#color_ink_deep"/>
+
+      <lv_button x="186" y="12" width="76" height="40">
+        <style name="style_tab"/>
+        <bind_style name="style_tab_active" subject="page" ref_value="0"/>
+        <style name="style_button_ink_pressed" selector="pressed"/>
+        <lv_label text="Home" align="center"/>
+        <subject_set_int_event trigger="clicked" subject="page" value="0"/>
+      </lv_button>
+
+      <lv_button x="270" y="12" width="96" height="40">
+        <style name="style_tab"/>
+        <bind_style name="style_tab_active" subject="page" ref_value="1"/>
+        <style name="style_button_ink_pressed" selector="pressed"/>
+        <lv_label text="Schedule" align="center"/>
+        <subject_set_int_event trigger="clicked" subject="page" value="1"/>
+      </lv_button>
+
+      <lv_button x="374" y="12" width="84" height="40">
+        <style name="style_tab"/>
+        <bind_style name="style_tab_active" subject="page" ref_value="2"/>
+        <style name="style_button_ink_pressed" selector="pressed"/>
+        <lv_label text="History" align="center"/>
+        <subject_set_int_event trigger="clicked" subject="page" value="2"/>
+      </lv_button>
+
+      <lv_button x="466" y="12" width="88" height="40">
+        <style name="style_tab"/>
+        <bind_style name="style_tab_active" subject="page" ref_value="3"/>
+        <style name="style_button_ink_pressed" selector="pressed"/>
+        <lv_label text="Settings" align="center"/>
+        <subject_set_int_event trigger="clicked" subject="page" value="3"/>
+      </lv_button>
+
+      <lv_obj x="674" y="16" width="102" height="32" scrollable="false">
+        <style name="style_badge_success"/>
+        <lv_obj x="12" y="11" width="10" height="10"
+                style_bg_color="#color_canvas" style_bg_opa="100%"
+                style_border_width="0" style_radius="100"/>
+        <lv_label text="Online" x="31" y="8"/>
       </lv_obj>
-      <lv_label text="AQUAFEED" x="68" y="12" style_text_color="0xf1faf8"/>
-      <lv_label text="Smart Fish Feeder" x="68" y="34" style_text_color="0x65817d"/>
-      <lv_obj x="600" y="13" width="92" height="32" style_bg_color="0x102226" style_bg_opa="100%" style_border_width="0" style_radius="12" style_pad_all="0" scrollable="false">
-        <lv_obj x="10" y="11" width="10" height="10" style_bg_color="0x5fe0a8" style_bg_opa="100%" style_border_width="0" style_radius="5"/>
-        <lv_label text="ONLINE" x="28" y="8" style_text_color="0x9fb9b5"/>
-      </lv_obj>
-      <lv_label text="08:42" x="716" y="18" style_text_color="0xf1faf8"/>
     </lv_obj>
 
-    <lv_obj name="page_home" x="0" y="58" width="800" height="352" style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
+    <lv_obj name="page_home" x="0" y="64" width="800" height="416"
+            style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
       <bind_flag_if_not_eq subject="page" flag="hidden" ref_value="0"/>
-      <lv_label text="Good morning" x="24" y="12" style_text_color="0xf1faf8"/>
-      <lv_label text="Everything looks good. Next feeding is on schedule." x="24" y="38" style_text_color="0x9fb9b5"/>
 
-      <lv_obj x="24" y="70" width="360" height="252" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="MANUAL FEED" x="22" y="18" style_text_color="0x39d6b4"/>
-        <lv_label text="Feed the fish" x="22" y="45" style_text_color="0xf1faf8"/>
-        <lv_label text="Selected portion" x="22" y="72" style_text_color="0x9fb9b5"/>
-        <lv_label x="22" y="104" bind_text="portion_g" bind_text-fmt="%d g" style_text_color="0xf1faf8"/>
+      <lv_obj x="24" y="16" width="460" height="376" scrollable="false">
+        <style name="style_feature"/>
 
-        <lv_button x="176" y="94" width="56" height="46">
-          <style name="style_button"/>
-          <lv_label text="-" align="center" style_text_color="0xf1faf8"/>
+        <lv_obj x="24" y="24" width="86" height="28" scrollable="false">
+          <style name="style_badge_success"/>
+          <lv_label text="READY" align="center"/>
+        </lv_obj>
+
+        <lv_label text="AquaFeed One" x="24" y="70" style_text_color="#color_steel"/>
+        <lv_label text="Dinner is handled." x="24" y="102" style_text_color="#color_ink_deep"/>
+        <lv_label text="A calm, measured feed every time.&#10;Automatic schedule is running." x="24" y="134" width="210" style_text_color="#color_charcoal"/>
+
+        <lv_obj x="279" y="46" width="112" height="44" scrollable="false"
+                style_bg_color="#color_canvas" style_bg_opa="100%"
+                style_border_width="1" style_border_color="#color_hairline_soft"
+                style_radius="22"/>
+        <lv_obj x="260" y="72" width="150" height="190" scrollable="false"
+                style_bg_color="#color_canvas" style_bg_opa="100%"
+                style_border_width="1" style_border_color="#color_hairline_soft"
+                style_radius="32">
+          <lv_obj x="20" y="26" width="110" height="10"
+                  style_bg_color="#color_surface_soft" style_bg_opa="100%"
+                  style_border_width="0" style_radius="100"/>
+          <lv_bar x="20" y="26" width="110" height="10"
+                  min_value="0" max_value="100" bind_value="food_level"
+                  style_bg_opa="0"
+                  style_bg_color-indicator="#color_primary"
+                  style_bg_opa-indicator="100%"
+                  style_radius-indicator="100"/>
+          <lv_obj x="30" y="76" width="90" height="48" scrollable="false"
+                  style_bg_color="#color_ink_deep" style_bg_opa="100%"
+                  style_border_width="0" style_radius="16">
+            <lv_label bind_text="food_level" bind_text-fmt="%d%%" align="center" style_text_color="#color_canvas"/>
+          </lv_obj>
+          <lv_label text="FOOD" x="57" y="137" style_text_color="#color_stone"/>
+        </lv_obj>
+        <lv_obj x="320" y="252" width="30" height="28"
+                style_bg_color="#color_ink_deep" style_bg_opa="100%"
+                style_border_width="0" style_radius="8"/>
+        <lv_obj x="246" y="272" width="178" height="42" scrollable="false"
+                style_bg_color="#color_canvas" style_bg_opa="100%"
+                style_border_width="1" style_border_color="#color_hairline_soft"
+                style_radius="24"/>
+
+        <lv_obj x="24" y="282" width="202" height="66" scrollable="false">
+          <style name="style_dark_strip"/>
+          <lv_label text="NEXT FEED" x="18" y="12" style_text_color="#color_stone"/>
+          <lv_label text="18:00 - 10 g" x="18" y="36" style_text_color="#color_canvas"/>
+        </lv_obj>
+      </lv_obj>
+
+      <lv_obj x="500" y="16" width="276" height="376" scrollable="false">
+        <style name="style_card"/>
+
+        <lv_label text="Feed now" x="22" y="22" style_text_color="#color_ink_deep"/>
+        <lv_label text="Choose a portion, then dispense." x="22" y="48" width="230" style_text_color="#color_steel"/>
+
+        <lv_label text="PORTION" x="22" y="88" style_text_color="#color_stone"/>
+
+        <lv_button x="22" y="112" width="44" height="44">
+          <style name="style_button_ghost"/>
+          <lv_label text="-" align="center"/>
           <subject_increment_event trigger="clicked" subject="portion_g" step="-1" min_value="1" max_value="50"/>
         </lv_button>
-        <lv_button x="242" y="94" width="56" height="46">
-          <style name="style_button"/>
-          <lv_label text="+" align="center" style_text_color="0xf1faf8"/>
+
+        <lv_obj x="78" y="112" width="120" height="44" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label bind_text="portion_g" bind_text-fmt="%d grams" align="center" style_text_color="#color_ink_deep"/>
+        </lv_obj>
+
+        <lv_button x="210" y="112" width="44" height="44">
+          <style name="style_button_ghost"/>
+          <lv_label text="+" align="center"/>
           <subject_increment_event trigger="clicked" subject="portion_g" step="1" min_value="1" max_value="50"/>
         </lv_button>
-        <lv_button x="22" y="170" width="316" height="54">
-          <style name="style_button_primary"/>
-          <lv_label text="FEED NOW" align="center" style_text_color="0x071417"/>
+
+        <lv_button x="22" y="174" width="232" height="50">
+          <style name="style_button_cobalt"/>
+          <style name="style_button_cobalt_pressed" selector="pressed"/>
+          <lv_label text="Feed now" align="center"/>
           <subject_increment_event trigger="clicked" subject="food_level" step="-2" min_value="0" max_value="100"/>
           <subject_increment_event trigger="clicked" subject="feed_count" step="1" min_value="0" max_value="999"/>
           <subject_set_string_event trigger="clicked" subject="feed_status" value="Manual feed complete"/>
         </lv_button>
-      </lv_obj>
 
-      <lv_obj x="402" y="70" width="178" height="150" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="FOOD LEVEL" x="18" y="16" style_text_color="0x9fb9b5"/>
-        <lv_label x="18" y="44" bind_text="food_level" bind_text-fmt="%d%%" style_text_color="0xf1faf8"/>
-        <lv_bar x="18" y="86" width="142" height="12" min_value="0" max_value="100" bind_value="food_level" style_bg_color="0x163036" style_bg_opa="100%" style_bg_color-indicator="0x39d6b4" style_bg_opa-indicator="100%" style_radius="6" style_radius-indicator="6"/>
-        <lv_label text="Hopper sensor" x="18" y="112" style_text_color="0x65817d"/>
-      </lv_obj>
+        <lv_obj x="22" y="238" width="232" height="44" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label bind_text="feed_status" align="center" style_text_color="#color_steel"/>
+        </lv_obj>
 
-      <lv_obj x="596" y="70" width="180" height="150" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="FEEDINGS" x="18" y="16" style_text_color="0x9fb9b5"/>
-        <lv_label x="18" y="44" bind_text="feed_count" bind_text-fmt="%d today" style_text_color="0xf1faf8"/>
-        <lv_label text="Last action" x="18" y="83" style_text_color="0x65817d"/>
-        <lv_label x="18" y="108" width="145" bind_text="feed_status" style_text_color="0x5fe0a8"/>
-      </lv_obj>
+        <lv_obj x="22" y="300" width="232" height="1"
+                style_bg_color="#color_hairline_soft" style_bg_opa="100%" style_border_width="0"/>
 
-      <lv_obj x="402" y="236" width="374" height="86" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="NEXT FEED" x="18" y="12" style_text_color="0x65817d"/>
-        <lv_label text="18:00" x="18" y="38" style_text_color="0xf1faf8"/>
-        <lv_label text="10 g" x="112" y="38" style_text_color="0x39d6b4"/>
-        <lv_label text="Evening feeding" x="220" y="38" style_text_color="0x9fb9b5"/>
+        <lv_label text="Food level" x="22" y="316" style_text_color="#color_steel"/>
+        <lv_label bind_text="food_level" bind_text-fmt="%d%%" x="210" y="316" style_text_color="#color_ink_deep"/>
+
+        <lv_bar x="22" y="344" width="232" height="10"
+                min_value="0" max_value="100" bind_value="food_level"
+                style_bg_color="#color_surface_soft" style_bg_opa="100%"
+                style_bg_color-indicator="#color_primary" style_bg_opa-indicator="100%"
+                style_radius="100" style_radius-indicator="100"/>
       </lv_obj>
     </lv_obj>
 
-    <lv_obj name="page_schedule" x="0" y="58" width="800" height="352" style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
+    <lv_obj name="page_schedule" x="0" y="64" width="800" height="416"
+            style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
       <bind_flag_if_not_eq subject="page" flag="hidden" ref_value="1"/>
-      <lv_label text="Feeding schedule" x="24" y="12" style_text_color="0xf1faf8"/>
-      <lv_label text="Tap switches to enable or disable automatic feedings." x="24" y="38" style_text_color="0x9fb9b5"/>
 
-      <lv_obj x="24" y="76" width="560" height="68" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="08:00" x="18" y="16" style_text_color="0xf1faf8"/>
-        <lv_label text="8 g" x="126" y="18" style_text_color="0x39d6b4"/>
-        <lv_label text="Morning" x="205" y="18" style_text_color="0x9fb9b5"/>
-        <lv_switch x="480" y="18" width="54" height="30" bind_checked="schedule_1" style_bg_color="0x163036" style_bg_color-indicator-checked="0x39d6b4"/>
+      <lv_label text="Feeding schedule" x="24" y="18" style_text_color="#color_ink_deep"/>
+      <lv_label text="Three calm moments, automatically portioned." x="24" y="44" style_text_color="#color_steel"/>
+
+      <lv_obj x="24" y="82" width="520" height="82" scrollable="false">
+        <style name="style_card"/>
+        <lv_obj x="18" y="19" width="88" height="44" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label text="08:00" align="center" style_text_color="#color_ink_deep"/>
+        </lv_obj>
+        <lv_label text="Morning feed" x="126" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="8 g portion" x="126" y="44" style_text_color="#color_steel"/>
+        <lv_switch x="438" y="24" width="56" height="32" bind_checked="schedule_1"
+                   style_bg_color="#color_hairline_soft"
+                   style_bg_color-indicator-checked="#color_primary"/>
       </lv_obj>
 
-      <lv_obj x="24" y="154" width="560" height="68" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="13:00" x="18" y="16" style_text_color="0xf1faf8"/>
-        <lv_label text="6 g" x="126" y="18" style_text_color="0x39d6b4"/>
-        <lv_label text="Lunch" x="205" y="18" style_text_color="0x9fb9b5"/>
-        <lv_switch x="480" y="18" width="54" height="30" bind_checked="schedule_2" style_bg_color="0x163036" style_bg_color-indicator-checked="0x39d6b4"/>
+      <lv_obj x="24" y="174" width="520" height="82" scrollable="false">
+        <style name="style_card"/>
+        <lv_obj x="18" y="19" width="88" height="44" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label text="13:00" align="center" style_text_color="#color_ink_deep"/>
+        </lv_obj>
+        <lv_label text="Lunch feed" x="126" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="6 g portion" x="126" y="44" style_text_color="#color_steel"/>
+        <lv_switch x="438" y="24" width="56" height="32" bind_checked="schedule_2"
+                   style_bg_color="#color_hairline_soft"
+                   style_bg_color-indicator-checked="#color_primary"/>
       </lv_obj>
 
-      <lv_obj x="24" y="232" width="560" height="68" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="18:00" x="18" y="16" style_text_color="0xf1faf8"/>
-        <lv_label text="10 g" x="126" y="18" style_text_color="0x39d6b4"/>
-        <lv_label text="Evening" x="205" y="18" style_text_color="0x9fb9b5"/>
-        <lv_switch x="480" y="18" width="54" height="30" bind_checked="schedule_3" style_bg_color="0x163036" style_bg_color-indicator-checked="0x39d6b4"/>
+      <lv_obj x="24" y="266" width="520" height="82" scrollable="false">
+        <style name="style_card"/>
+        <lv_obj x="18" y="19" width="88" height="44" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label text="18:00" align="center" style_text_color="#color_ink_deep"/>
+        </lv_obj>
+        <lv_label text="Evening feed" x="126" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="10 g portion" x="126" y="44" style_text_color="#color_steel"/>
+        <lv_switch x="438" y="24" width="56" height="32" bind_checked="schedule_3"
+                   style_bg_color="#color_hairline_soft"
+                   style_bg_color-indicator-checked="#color_primary"/>
       </lv_obj>
 
-      <lv_obj x="610" y="76" width="166" height="224" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="AUTOMATION" x="18" y="18" style_text_color="0x9fb9b5"/>
-        <lv_label text="3 slots" x="18" y="52" style_text_color="0xf1faf8"/>
-        <lv_label text="24 g planned" x="18" y="82" style_text_color="0x39d6b4"/>
-        <lv_label text="Schedules persist&#10;across page changes&#10;through subjects." x="18" y="122" width="130" style_text_color="0x65817d"/>
+      <lv_obj x="560" y="82" width="216" height="266" scrollable="false">
+        <style name="style_dark_strip"/>
+        <lv_label text="TODAY'S PLAN" x="22" y="24" style_text_color="#color_stone"/>
+        <lv_label text="3 feedings" x="22" y="58" style_text_color="#color_canvas"/>
+        <lv_label text="24 g planned" x="22" y="86" style_text_color="#color_canvas"/>
+
+        <lv_obj x="22" y="132" width="172" height="1"
+                style_bg_color="#color_charcoal" style_bg_opa="100%" style_border_width="0"/>
+
+        <lv_label text="Spacing" x="22" y="154" style_text_color="#color_stone"/>
+        <lv_label text="5-8 hours" x="22" y="180" style_text_color="#color_canvas"/>
+        <lv_label text="Automatic feeding remains&#10;active while this display sleeps." x="22" y="214" width="172" style_text_color="#color_stone"/>
       </lv_obj>
     </lv_obj>
 
-    <lv_obj name="page_history" x="0" y="58" width="800" height="352" style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
+    <lv_obj name="page_history" x="0" y="64" width="800" height="416"
+            style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
       <bind_flag_if_not_eq subject="page" flag="hidden" ref_value="2"/>
-      <lv_label text="Feeding history" x="24" y="12" style_text_color="0xf1faf8"/>
-      <lv_label text="Recent automatic and manual feeding activity." x="24" y="38" style_text_color="0x9fb9b5"/>
 
-      <lv_obj x="24" y="76" width="752" height="58" scrollable="false">
-        <style name="style_panel"/>
-        <lv_obj x="18" y="23" width="12" height="12" style_bg_color="0x5fe0a8" style_bg_opa="100%" style_border_width="0" style_radius="6"/>
-        <lv_label text="08:00" x="45" y="11" style_text_color="0x9fb9b5"/>
-        <lv_label text="Morning feed" x="170" y="11" style_text_color="0xf1faf8"/>
-        <lv_label text="8 g" x="625" y="11" style_text_color="0x39d6b4"/>
-        <lv_label text="Completed" x="625" y="32" style_text_color="0x65817d"/>
+      <lv_label text="Feeding history" x="24" y="18" style_text_color="#color_ink_deep"/>
+      <lv_label text="A simple record of what the feeder dispensed." x="24" y="44" style_text_color="#color_steel"/>
+
+      <lv_obj x="24" y="80" width="752" height="82" scrollable="false">
+        <style name="style_dark_strip"/>
+        <lv_label text="TODAY" x="22" y="16" style_text_color="#color_stone"/>
+        <lv_label bind_text="feed_count" bind_text-fmt="%d feedings completed" x="22" y="44" style_text_color="#color_canvas"/>
+        <lv_label text="Hopper" x="520" y="16" style_text_color="#color_stone"/>
+        <lv_label bind_text="food_level" bind_text-fmt="%d%% remaining" x="520" y="44" style_text_color="#color_canvas"/>
       </lv_obj>
-      <lv_obj x="24" y="144" width="752" height="58" scrollable="false">
-        <style name="style_panel"/>
-        <lv_obj x="18" y="23" width="12" height="12" style_bg_color="0x5fe0a8" style_bg_opa="100%" style_border_width="0" style_radius="6"/>
-        <lv_label text="Yesterday 18:00" x="45" y="11" style_text_color="0x9fb9b5"/>
-        <lv_label text="Evening feed" x="170" y="11" style_text_color="0xf1faf8"/>
-        <lv_label text="10 g" x="625" y="11" style_text_color="0x39d6b4"/>
-        <lv_label text="Completed" x="625" y="32" style_text_color="0x65817d"/>
+
+      <lv_obj x="24" y="178" width="752" height="58" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="08:00" x="18" y="20" style_text_color="#color_steel"/>
+        <lv_label text="Morning feed" x="136" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="8 g" x="530" y="20" style_text_color="#color_ink_deep"/>
+        <lv_obj x="628" y="14" width="104" height="30" scrollable="false">
+          <style name="style_badge_success"/>
+          <lv_label text="Completed" align="center"/>
+        </lv_obj>
       </lv_obj>
-      <lv_obj x="24" y="212" width="752" height="58" scrollable="false">
-        <style name="style_panel"/>
-        <lv_obj x="18" y="23" width="12" height="12" style_bg_color="0x5fe0a8" style_bg_opa="100%" style_border_width="0" style_radius="6"/>
-        <lv_label text="Yesterday 13:00" x="45" y="11" style_text_color="0x9fb9b5"/>
-        <lv_label text="Lunch feed" x="170" y="11" style_text_color="0xf1faf8"/>
-        <lv_label text="6 g" x="625" y="11" style_text_color="0x39d6b4"/>
-        <lv_label text="Completed" x="625" y="32" style_text_color="0x65817d"/>
+
+      <lv_obj x="24" y="246" width="752" height="58" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="Yesterday 18:00" x="18" y="20" style_text_color="#color_steel"/>
+        <lv_label text="Evening feed" x="180" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="10 g" x="530" y="20" style_text_color="#color_ink_deep"/>
+        <lv_obj x="628" y="14" width="104" height="30" scrollable="false">
+          <style name="style_badge_success"/>
+          <lv_label text="Completed" align="center"/>
+        </lv_obj>
       </lv_obj>
-      <lv_obj x="24" y="280" width="752" height="42" scrollable="false">
-        <style name="style_panel_small"/>
-        <lv_label text="Live session count:" x="18" y="13" style_text_color="0x9fb9b5"/>
-        <lv_label x="170" y="13" bind_text="feed_count" bind_text-fmt="%d feedings" style_text_color="0x39d6b4"/>
+
+      <lv_obj x="24" y="314" width="752" height="58" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="Yesterday 13:00" x="18" y="20" style_text_color="#color_steel"/>
+        <lv_label text="Lunch feed" x="180" y="20" style_text_color="#color_ink_deep"/>
+        <lv_label text="6 g" x="530" y="20" style_text_color="#color_ink_deep"/>
+        <lv_obj x="628" y="14" width="104" height="30" scrollable="false">
+          <style name="style_badge_success"/>
+          <lv_label text="Completed" align="center"/>
+        </lv_obj>
       </lv_obj>
     </lv_obj>
 
-    <lv_obj name="page_settings" x="0" y="58" width="800" height="352" style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
+    <lv_obj name="page_settings" x="0" y="64" width="800" height="416"
+            style_bg_opa="0" style_border_width="0" style_pad_all="0" scrollable="false">
       <bind_flag_if_not_eq subject="page" flag="hidden" ref_value="3"/>
-      <lv_label text="Feeder settings" x="24" y="12" style_text_color="0xf1faf8"/>
-      <lv_label text="Adjust values used by the UI preview." x="24" y="38" style_text_color="0x9fb9b5"/>
 
-      <lv_obj x="24" y="76" width="360" height="112" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="DEFAULT PORTION" x="18" y="15" style_text_color="0x9fb9b5"/>
-        <lv_label x="18" y="48" bind_text="portion_g" bind_text-fmt="%d g" style_text_color="0xf1faf8"/>
-        <lv_button x="240" y="34" width="44" height="44">
-          <style name="style_button"/>
-          <lv_label text="-" align="center" style_text_color="0xf1faf8"/>
+      <lv_label text="Feeder settings" x="24" y="18" style_text_color="#color_ink_deep"/>
+      <lv_label text="Tune the feeder without adding visual noise." x="24" y="44" style_text_color="#color_steel"/>
+
+      <lv_obj x="24" y="82" width="360" height="124" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="Default portion" x="20" y="18" style_text_color="#color_ink_deep"/>
+        <lv_label text="Used for manual feeding." x="20" y="44" style_text_color="#color_steel"/>
+        <lv_button x="210" y="62" width="42" height="42">
+          <style name="style_button_ghost"/>
+          <lv_label text="-" align="center"/>
           <subject_increment_event trigger="clicked" subject="portion_g" step="-1" min_value="1" max_value="50"/>
         </lv_button>
-        <lv_button x="296" y="34" width="44" height="44">
-          <style name="style_button"/>
-          <lv_label text="+" align="center" style_text_color="0xf1faf8"/>
-          <subject_increment_event trigger="clicked" subject="portion_g" step="1" min_value="1" max_value="50"/>
-        </lv_button>
+        <lv_obj x="260" y="62" width="78" height="42" scrollable="false">
+          <style name="style_soft"/>
+          <lv_label bind_text="portion_g" bind_text-fmt="%d g" align="center" style_text_color="#color_ink_deep"/>
+        </lv_obj>
       </lv_obj>
 
-      <lv_obj x="402" y="76" width="374" height="112" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="FOOD LEVEL SIMULATION" x="18" y="15" style_text_color="0x9fb9b5"/>
-        <lv_label x="306" y="15" bind_text="food_level" bind_text-fmt="%d%%" style_text_color="0x39d6b4"/>
-        <lv_slider x="18" y="62" width="336" height="14" min_value="0" max_value="100" bind_value="food_level" style_bg_color="0x163036" style_bg_opa="100%" style_bg_color-indicator="0x39d6b4" style_bg_opa-indicator="100%" style_bg_color-knob="0xf1faf8" style_bg_opa-knob="100%"/>
+      <lv_obj x="400" y="82" width="376" height="124" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="Food level" x="20" y="18" style_text_color="#color_ink_deep"/>
+        <lv_label text="Simulated hopper sensor." x="20" y="44" style_text_color="#color_steel"/>
+        <lv_label bind_text="food_level" bind_text-fmt="%d%%" x="316" y="18" style_text_color="#color_primary"/>
+        <lv_slider x="20" y="82" width="336" height="10"
+                   min_value="0" max_value="100" bind_value="food_level"
+                   style_bg_color="#color_surface_soft" style_bg_opa="100%"
+                   style_bg_color-indicator="#color_primary" style_bg_opa-indicator="100%"
+                   style_bg_color-knob="#color_canvas" style_border_color-knob="#color_primary"
+                   style_border_width-knob="2" style_radius="100" style_radius-indicator="100" style_radius-knob="100"/>
       </lv_obj>
 
-      <lv_obj x="24" y="206" width="752" height="116" scrollable="false">
-        <style name="style_panel"/>
-        <lv_label text="DEVICE" x="18" y="14" style_text_color="0x9fb9b5"/>
-        <lv_label text="AquaFeed Controller" x="18" y="40" style_text_color="0xf1faf8"/>
-        <lv_label text="Waveshare ESP32-S3 / 800 x 480" x="18" y="68" style_text_color="0x65817d"/>
-        <lv_label text="Buzzer" x="390" y="24" style_text_color="0x65817d"/>
-        <lv_switch x="390" y="52" width="54" height="30" bind_checked="buzzer_enabled" style_bg_color="0x163036" style_bg_color-indicator-checked="0x39d6b4"/>
-        <lv_label text="Preview" x="535" y="24" style_text_color="0x65817d"/>
-        <lv_label text="LVGL Pro XML" x="535" y="54" style_text_color="0x39d6b4"/>
+      <lv_obj x="24" y="222" width="360" height="132" scrollable="false">
+        <style name="style_card"/>
+        <lv_label text="Feed alert" x="20" y="18" style_text_color="#color_ink_deep"/>
+        <lv_label text="Sound after a successful dispense." x="20" y="44" width="220" style_text_color="#color_steel"/>
+        <lv_switch x="282" y="18" width="56" height="32" bind_checked="buzzer_enabled"
+                   style_bg_color="#color_hairline_soft"
+                   style_bg_color-indicator-checked="#color_primary"/>
+        <lv_obj x="20" y="86" width="126" height="28" scrollable="false">
+          <style name="style_badge_soft"/>
+          <lv_label text="Local device" align="center"/>
+        </lv_obj>
+      </lv_obj>
+
+      <lv_obj x="400" y="222" width="376" height="132" scrollable="false">
+        <style name="style_feature"/>
+        <lv_label text="AquaFeed One" x="20" y="18" style_text_color="#color_ink_deep"/>
+        <lv_label text="Waveshare ESP32-S3 - 800 x 480" x="20" y="44" width="330" style_text_color="#color_steel"/>
+        <lv_obj x="20" y="82" width="86" height="28" scrollable="false">
+          <style name="style_badge_success"/>
+          <lv_label text="ONLINE" align="center"/>
+        </lv_obj>
+        <lv_obj x="118" y="82" width="110" height="28" scrollable="false">
+          <style name="style_badge_blue"/>
+          <lv_label text="LVGL PRO" align="center"/>
+        </lv_obj>
       </lv_obj>
     </lv_obj>
-
-    <lv_obj x="0" y="410" width="800" height="70" style_bg_color="0x102226" style_bg_opa="100%" style_border_width="0" style_radius="0" style_pad_all="0" scrollable="false">
-      <lv_button x="14" y="10" width="184" height="50" style_bg_color="0x102226" style_bg_opa="100%" style_bg_color-checked="0x39d6b4" style_border_width="0" style_radius="14">
-        <bind_state_if_eq subject="page" state="checked" ref_value="0"/>
-        <subject_set_int_event trigger="clicked" subject="page" value="0"/>
-        <lv_label text="Home" align="center" style_text_color="0xf1faf8"/>
-      </lv_button>
-      <lv_button x="210" y="10" width="184" height="50" style_bg_color="0x102226" style_bg_opa="100%" style_bg_color-checked="0x39d6b4" style_border_width="0" style_radius="14">
-        <bind_state_if_eq subject="page" state="checked" ref_value="1"/>
-        <subject_set_int_event trigger="clicked" subject="page" value="1"/>
-        <lv_label text="Schedule" align="center" style_text_color="0xf1faf8"/>
-      </lv_button>
-      <lv_button x="406" y="10" width="184" height="50" style_bg_color="0x102226" style_bg_opa="100%" style_bg_color-checked="0x39d6b4" style_border_width="0" style_radius="14">
-        <bind_state_if_eq subject="page" state="checked" ref_value="2"/>
-        <subject_set_int_event trigger="clicked" subject="page" value="2"/>
-        <lv_label text="History" align="center" style_text_color="0xf1faf8"/>
-      </lv_button>
-      <lv_button x="602" y="10" width="184" height="50" style_bg_color="0x102226" style_bg_opa="100%" style_bg_color-checked="0x39d6b4" style_border_width="0" style_radius="14">
-        <bind_state_if_eq subject="page" state="checked" ref_value="3"/>
-        <subject_set_int_event trigger="clicked" subject="page" value="3"/>
-        <lv_label text="Settings" align="center" style_text_color="0xf1faf8"/>
-      </lv_button>
-    </lv_obj>
-
   </view>
 </screen>
